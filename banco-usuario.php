@@ -1,10 +1,10 @@
 <?php
-function buscaUsuario($conexao, $email, $senha) {
+require_once('conecta.php');
+
+function buscaUsuario($mysqli,$email, $senha) {
     $senhaMd5 = md5($senha);
     $query = "select * from usuarios where email='{$email}' and senha='{$senhaMd5}'";
-    //var_dump($query);
-    //die();
-    $resultado = mysqli_query($conexao, $query);
-    $usuario = mysqli_fetch_assoc($resultado);
+    $resultado = $mysqli->query($query);
+    $usuario = $resultado->fetch_assoc();
     return $usuario;
 }

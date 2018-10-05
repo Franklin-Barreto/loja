@@ -1,22 +1,21 @@
-<?php include("cabecalho.php");
-      include("conecta.php");
-      include("banco-categoria.php");
-      include("logica-usuario.php");
+<?php require_once("cabecalho.php");
+      require_once("banco-categoria.php");
+      require_once("logica-usuario.php");
 
 verificaUsuario();
 $produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1");
 $usado = "";
-$categorias = listaCategorias($conexao);
+$categorias = listaCategorias($mysqli);
 ?>
 
 <h1>Formulário de produto</h1>
 <form action="adiciona-produto.php" method="post">
     <table class="table">
-       <?php include("produto-formulario-base.php")?>
+       <?php require_once("produto-formulario-base.php")?>
         <tr>
             <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>
         </tr>
     </table>
 </form>
 
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>
