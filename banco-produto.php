@@ -13,10 +13,10 @@ function listaProdutos($mysqli)
     return $produtos;
 }
 
-function insereProduto($mysqli, $nome, $preco, $descricao, $categoria_id, $usado)
+function insereProduto($mysqli,Produto $produto)
 {
     $query = "insert into produtos (nome, preco, descricao, categoria_id, usado)
-        values ('{$nome}', {$preco}, '{$descricao}', {$categoria_id}, {$usado})";
+        values ('{$produto->nome}', {$produto->preco}, '{$produto->descricao}', {$produto->categoria_id}, {$produto->usado})";
     return $mysqli->query($query);
 }
 

@@ -1,8 +1,5 @@
 <?php require_once("cabecalho.php");
       require_once("banco-produto.php");
-      require_once("mostra-alerta.php");
-      require_once 'conecta.php';
-      
       ?>
 
 <table class="table table-striped table-bordered">
