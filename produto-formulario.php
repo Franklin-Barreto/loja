@@ -8,7 +8,8 @@ verificaUsuario();
 $categoria = new Categoria();
 $categoria->id = 1;
 
-$categorias = listaCategorias($mysqli);
+$dao = new CategoriaDao($mysqli);
+$categorias = $dao->listaCategorias();
 $produto = new Produto('','','',$categoria,'');
 ?>
 
