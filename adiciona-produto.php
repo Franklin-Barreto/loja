@@ -2,8 +2,6 @@
 require_once ("cabecalho.php");
 require_once ("banco-produto.php");
 require_once ("logica-usuario.php");
-require_once 'classes\Produto.php';
-require_once 'classes\Categoria.php';
 
 verificaUsuario();
 foreach ($_POST as $key => $value) {

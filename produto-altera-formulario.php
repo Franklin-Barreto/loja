@@ -1,7 +1,6 @@
 <?php require_once("cabecalho.php");
       require_once("banco-categoria.php");
       require_once("banco-produto.php");
-      require_once 'classes\Produto.php';
 
 $id = $_GET['id'];
 $produto = buscaProduto($mysqli,$id);

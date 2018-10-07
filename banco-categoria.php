@@ -1,6 +1,5 @@
 <?php
 require_once("conecta.php");
-require_once 'classes\Categoria.php';
 
 function listaCategorias($mysqli) {
     $categorias = array();

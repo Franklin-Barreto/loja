@@ -1,7 +1,5 @@
 <?php
 require_once ('conecta.php');
-require_once 'classes\Produto.php';
-require_once 'classes\Categoria.php';
 
 function listaProdutos($mysqli)
 {

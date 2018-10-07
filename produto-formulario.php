@@ -3,8 +3,6 @@
 require_once ("cabecalho.php");
 require_once ("banco-categoria.php");
 require_once ("logica-usuario.php");
-require_once 'classes\Categoria.php';
-require_once 'classes\Produto.php';
 
 verificaUsuario();
 $categoria = new Categoria();
