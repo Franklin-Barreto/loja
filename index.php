@@ -1,10 +1,5 @@
 <?php require_once("cabecalho.php");
       require_once("logica-usuario.php");
-      require_once ("mostra-alerta.php");?>
-
-<?php
-  mostraAlerta("success");
-  mostraAlerta("danger");
  ?>
 
 <h1>Bem vindo!</h1>
