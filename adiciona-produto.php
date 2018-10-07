@@ -1,6 +1,6 @@
 <?php
+
 require_once ("cabecalho.php");
-require_once ("banco-produto.php");
 require_once ("logica-usuario.php");
 
 verificaUsuario();
@@ -12,8 +12,8 @@ $usado = isset($usado) ? "true" : "false";
 $categoria = new Categoria();
 $categoria->id = $categoria_id;
 $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
-
-if (insereProduto($mysqli, $produto)) {
+$dao = new ProdutoDao($mysqli);
+if ($dao->insereProduto($produto)) {
     ?>
 <p class="text-success">O produto <?= $produto->nome; ?>, <?= $produto->preco; ?> adicionado com sucesso!</p>
 <?php

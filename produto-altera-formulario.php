@@ -1,9 +1,9 @@
 <?php require_once("cabecalho.php");
       require_once("banco-categoria.php");
-      require_once("banco-produto.php");
-
+    
 $id = $_GET['id'];
-$produto = buscaProduto($mysqli,$id);
+$dao = new ProdutoDao($mysqli);
+$produto = $dao->buscaProduto($id);
 $categorias = listaCategorias($mysqli);
 
 $produto->usado = $produto->usado ? "checked='checked'" : "";

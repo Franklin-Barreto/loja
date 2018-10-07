@@ -1,12 +1,12 @@
 <?php
 require_once ("cabecalho.php");
-require_once ("banco-produto.php");
 ?>
 
 <table class="table table-striped table-bordered">
 
     <?php
-    $produtos = listaProdutos($mysqli);
+    $dao = new ProdutoDao($mysqli);
+    $produtos = $dao->listaProdutos();
     foreach ($produtos as $produto) :
         ?>
     <tr>

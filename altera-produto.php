@@ -1,7 +1,5 @@
 <?php
 require_once ("cabecalho.php");
-require_once ('conecta.php');
-require_once ("banco-produto.php");
 ?>
 
 <?php
@@ -19,7 +17,8 @@ foreach ($_POST as $key => $value) {
 $usado = array_key_exists('usado', $_POST) ? "true" : "false";
 $produto = new Produto($nome,$preco,$descricao,$categoria,$usado);
 $produto->id = $id;
-if (alteraProduto($mysqli, $produto)) {
+$dao = new ProdutoDao($mysqli);
+if ($dao->alteraProduto($produto)) {
     ?>
 <p class="text-success">O produto <?= $produto->nome; ?>, <?= $produto->preco; ?> alterado com sucesso!</p>
 <?php

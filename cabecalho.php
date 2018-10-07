@@ -1,13 +1,13 @@
 <?php
 require_once 'mostra-alerta.php';
+require_once 'conecta.php';
 error_reporting(E_ALL ^ E_NOTICE);
 
-function carregaClasses($nomeDaClasse)
-{
-    require_once 'classes\\' . $nomeDaClasse . '.php';
-}
 
-spl_autoload_register('carregaClasses');
+spl_autoload_register(function($nomeDaClasse){
+    
+    require_once 'classes\\' . $nomeDaClasse . '.php';
+});
 
 ?>
 
