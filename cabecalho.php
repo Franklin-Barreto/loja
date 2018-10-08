@@ -1,8 +1,16 @@
 <?php
 require_once 'mostra-alerta.php';
+require_once 'conecta.php';
 error_reporting(E_ALL ^ E_NOTICE);
 
+
+spl_autoload_register(function($nomeDaClasse){
+    
+    require_once 'classes\\' . $nomeDaClasse . '.php';
+});
+
 ?>
+
 <html>
 <head>
 <title>Minha loja</title>
@@ -28,6 +36,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 	<div class="container">
 		<div class="principal">
-<?php mostraAlerta("success");
-      mostraAlerta("danger");
+<?php
+
+mostraAlerta("success");
+mostraAlerta("danger");
 ?>		
