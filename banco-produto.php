@@ -20,9 +20,9 @@ function insereProduto($mysqli,Produto $produto)
     return $mysqli->query($query);
 }
 
-function alteraProduto($mysqli, $id, $nome, $preco, $descricao, $categoria_id, $usado)
+function alteraProduto($mysqli, Produto $produto)
 {
-    $query = "update produtos set nome = '{$nome}', preco = {$preco}, descricao = '{$descricao}',
+    $query = "update produtos set nome = '{$produto->nome}', preco = {$preco}, descricao = '{$descricao}',
         categoria_id= {$categoria_id}, usado = {$usado} where id = '{$id}'";
     return $mysqli->query($query);
 }
