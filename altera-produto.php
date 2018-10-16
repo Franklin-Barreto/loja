@@ -3,20 +3,9 @@ require_once ("cabecalho.php");
 ?>
 
 <?php
+$factory = new ProdutoFactory($mysqli);
+$produto = $factory->criaProduto($_POST['tipoProduto'], $_POST);
 
-$categoria = new Categoria();
-
-foreach ($_POST as $key => $value) {
-    if (strpos($key, "_")) {
-        $key = str_replace("categoria_", "", $key);
-        $categoria->$key = $value;
-    } else {
-        $$key = $value;
-    }
-}
-$usado = array_key_exists('usado', $_POST) ? "true" : "false";
-$produto = new Produto($nome,$preco,$descricao,$categoria,$usado);
-$produto->id = $id;
 $dao = new ProdutoDao($mysqli);
 if ($dao->alteraProduto($produto)) {
     ?>

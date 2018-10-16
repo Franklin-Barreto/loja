@@ -4,8 +4,10 @@
 $id = $_GET['id'];
 $dao = new ProdutoDao($mysqli);
 $produto = $dao->buscaProduto($id);
-$categorias = listaCategorias($mysqli);
+$daoCat = new CategoriaDao($mysqli);
+$categorias = $daoCat->listaCategorias();
 
+//var_dump($produto);
 $produto->usado = $produto->usado ? "checked='checked'" : "";
 ?>
 

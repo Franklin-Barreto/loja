@@ -1,17 +1,13 @@
 <?php
-
 require_once ("cabecalho.php");
 require_once ("logica-usuario.php");
 
 verificaUsuario();
-foreach ($_POST as $key => $value) {
-    
-    $$key = $mysqli->real_escape_string($value);
-}
-$usado = isset($usado) ? "true" : "false";
-$categoria = new Categoria();
-$categoria->id = $categoria_id;
-$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+
+$tipoProduto = $_POST['tipoProduto'];
+$factory = new ProdutoFactory($mysqli);
+$produto = $factory->criaProduto($tipoProduto, $_POST);
+
 $dao = new ProdutoDao($mysqli);
 if ($dao->insereProduto($produto)) {
     ?>
