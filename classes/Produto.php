@@ -41,34 +41,6 @@ class Produto
         return $this->preco;
     }
 
-    public function temIsbn()
-    {
-        return $this instanceof Livro;
-    }
-
-    public function temTaxaImpressao()
-    {
-        return $this instanceof LivroFisico;
-    }
-
-    public function temWaterMark()
-    {
-        return $this instanceof Ebook;
-    }
-
-    public function atualizaBaseadoEm($params)
-    {
-        if ($this->temIsbn()) {
-            $this->isbn = $params["isbn"];
-        }
-        if ($this->temWaterMark()) {
-            $this->waterMark = $params["waterMark"];
-        }
-        if ($this->temTaxaImpressao()) {
-            $this->taxaImpressao = $params["taxaImpressao"];
-        }
-    }
-
     public function calculaImposto()
     {
         return $this->preco * 0.195;

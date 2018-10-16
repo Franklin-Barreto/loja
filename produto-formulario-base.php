@@ -66,7 +66,7 @@
 <tr>
 	<td>ISBN (caso seja um Livro)</td>
 	<td><input type="text" name="isbn" class="form-control"
-		value="<?php if ($produto->temIsbn()) { echo $produto->isbn; } ?>"></td>
+		value="<?=$produto->isbn ?>"></td>
 </tr>
 <tr>
 	<td>WaterMark (caso seja um Ebook)</td>

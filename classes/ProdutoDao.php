@@ -29,46 +29,18 @@ class ProdutoDao
 
     function insereProduto(Produto $produto)
     {
-        $isbn = "";
-        if ($produto->temIsbn()) {
-            $isbn = $produto->isbn;
-        }
-
-        $waterMark = "";
-        if ($produto->temWaterMark()) {
-            $waterMark = $produto->waterMark;
-        }
-
-        $taxaImpressao = "";
-        if ($produto->temTaxaImpressao()) {
-            $taxaImpressao = $produto->taxaImpressao;
-        }
         $tipoProduto = get_class($produto);
         $query = "insert into produtos (nome, preco, descricao, categoria_id, usado,isbn,tipoProduto,waterMark,taxaImpressao)
-        values ('{$produto->nome}', {$produto->preco}, '{$produto->descricao}', {$produto->categoria->id}, {$produto->usado},'{$isbn}','{$tipoProduto}','{$waterMark}','{$taxaImpressao}')";
+        values ('{$produto->nome}', {$produto->preco}, '{$produto->descricao}', {$produto->categoria->id}, {$produto->usado},'{$produto->isbn}','{$tipoProduto}','{$produto->waterMark}','{$produto->taxaImpressao}')";
         return $this->mysqli->query($query);
     }
 
     function alteraProduto(Produto $produto)
     {
-        $isbn = "";
-        if ($produto->temIsbn()) {
-            $isbn = $produto->isbn;
-        }
-
-        $waterMark = "";
-        if ($produto->temWaterMark()) {
-            $waterMark = $produto->waterMark;
-        }
-
-        $taxaImpressao = "";
-        if ($produto->temTaxaImpressao()) {
-            $taxaImpressao = $produto->taxaImpressao;
-        }
         $tipoProduto = get_class($produto);
         $query = "update produtos set nome = '{$produto->nome}', preco = {$produto->preco}, descricao = '{$produto->descricao}',
-        categoria_id= {$produto->categoria->id}, usado = {$produto->usado}, isbn = {$isbn}, tipoProduto = '{$tipoProduto}',
- waterMark='{$waterMark}', taxaImpressao='{$taxaImpressao}'  where id = '{$produto->id}'";
+        categoria_id= {$produto->categoria->id}, usado = {$produto->usado}, isbn = {$produto->isbn}, tipoProduto = '{$tipoProduto}',
+ waterMark='{$produto->waterMark}', taxaImpressao='{$produto->taxaImpressao}'  where id = '{$produto->id}'";
         return $this->mysqli->query($query);
     }
 

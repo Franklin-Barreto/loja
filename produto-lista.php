@@ -15,7 +15,7 @@ require_once ("cabecalho.php");
 		<td><?= $produto->calculaImposto() ?></td>
 		<td><?= substr($produto->descricao, 0, 40) ?></td>
 		<td><?= $produto->categoria->nome ?></td>
-		<td><?= $produto->temIsbn()?"ISBN:".$produto->isbn:"" ?></td>
+		<td><?= $produto->isbn?"ISBN:".$produto->isbn:"" ?></td>
 		<td><a class="btn btn-primary"
 			href="produto-altera-formulario.php?id=<?=$produto->id?>">alterar</a></td>
 		<td>

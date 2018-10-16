@@ -38,7 +38,7 @@ class ProdutoFactory
             $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
             $produto->id = $id;
         }
-        $produto->atualizaBaseadoEm($params);
+      //  $produto->atualizaBaseadoEm($params);
         return $produto;
     }
 }
